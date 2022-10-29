@@ -2,7 +2,7 @@ import React from 'react';
 import PlayerDetails from './PlayerDetails';
 import PlayerControls from "./PlayerControls"
 import { useEffect, useState, useRef } from 'react'
-import { toBeEmpty } from '@testing-library/jest-dom/dist/matchers';
+
 
 export default function Player(props) {
 
@@ -10,6 +10,7 @@ export default function Player(props) {
 
     const audioEl = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
+
 
     useEffect(() => {
 
@@ -47,16 +48,19 @@ export default function Player(props) {
         <div className='c-player'>
 
             <audio src={props.songs[props.currentSongIndex].src} ref={audioEl} ></audio>
-            <h4>Playing Now</h4>
+            <h4 className='playing-now'>Playing Now</h4>
 
-            <PlayerDetails song={props.songs[props.currentSongIndex]} />
+            <PlayerDetails
+                song={props.songs[props.currentSongIndex]}
+                isPlaying={isPlaying}
+            />
 
             <PlayerControls
                 isPlaying={isPlaying}
                 setIsPlaying={setIsPlaying}
                 SkipSong={SkipSong} />
 
-            <p>
+            <p className="next-up">
                 <strong>Next Up:</strong> {props.songs[props.nextSongIndex].title} by{' '}
                 {props.songs[props.nextSongIndex].artist}{' '}
             </p>

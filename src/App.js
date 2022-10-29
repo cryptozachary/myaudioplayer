@@ -1,48 +1,17 @@
 import React from 'react';
 import Player from './components/Player';
 import { useState, useEffect } from 'react';
+import music from './slices/musicslices';
 
 export default function App() {
 
-  const [songs] = useState([
-    {
-      title: 'Dreamerr',
-      artist: 'Zachary Lipscomb',
-      img_src: "./images/dreamerr.jpg",
-      src: "./music/dreamerr.mp3",
-    },
-
-    {
-      title: 'Medicine',
-      artist: 'Zachary Lipscomb',
-      img_src: "./images/dreamerr.jpg",
-      src: "./music/medicine.mp3",
-    },
-    {
-      title: 'Rebel Life',
-      artist: 'Zachary Lipscomb',
-      img_src: './images/dreamerr.jpg',
-      src: './music/rebel-life.mp3',
-    },
-    {
-      title: 'Save the Day',
-      artist: 'Zachary Lipscomb',
-      img_src: './images/dreamerr.jpg',
-      src: './music/save-the-day.mp3',
-    },
-    {
-      title: 'Butterflies',
-      artist: 'Zachary Lipscomb',
-      img_src: './images/dreamerr.jpg',
-      src: './music/butterflies.mp3',
-    },
-  ]);
+  const [songs, setSongs] = useState(music);
 
   let thisSong = songs[0].src
   console.log(thisSong)
 
 
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [currentSongIndex, setCurrentSongIndex] = useState(27);
   const [nextSongIndex, setNextSongIndex] = useState(0);
 
   useEffect(() => {
