@@ -8,6 +8,7 @@ export default function App() {
   const [songs, setSongs] = useState(music);
 
   let thisSong = songs[0].src
+
   console.log(thisSong)
 
 

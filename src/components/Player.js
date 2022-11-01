@@ -6,11 +6,9 @@ import { useEffect, useState, useRef } from 'react'
 
 export default function Player(props) {
 
-    console.log(props)
-
     const audioEl = useRef(null)
-    const [isPlaying, setIsPlaying] = useState(false)
 
+    const [isPlaying, setIsPlaying] = useState(false)
 
     useEffect(() => {
 
@@ -44,6 +42,7 @@ export default function Player(props) {
         })
     }
 
+
     return (
         <div className='c-player'>
 
@@ -58,7 +57,10 @@ export default function Player(props) {
             <PlayerControls
                 isPlaying={isPlaying}
                 setIsPlaying={setIsPlaying}
-                SkipSong={SkipSong} />
+                SkipSong={SkipSong}
+                audioEl={audioEl}
+
+            />
 
             <p className="next-up">
                 <strong>Next Up:</strong> {props.songs[props.nextSongIndex].title} by{' '}
