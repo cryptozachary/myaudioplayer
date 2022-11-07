@@ -43,6 +43,8 @@ export default function Player(props) {
     }
 
 
+
+
     return (
         <div className='c-player'>
 
@@ -59,14 +61,12 @@ export default function Player(props) {
                 setIsPlaying={setIsPlaying}
                 SkipSong={SkipSong}
                 audioEl={audioEl}
-
             />
 
             <p className="next-up">
                 <strong>Next Up:</strong> {props.songs[props.nextSongIndex].title} by{' '}
                 {props.songs[props.nextSongIndex].artist}{' '}
             </p>
-
         </div>
     );
 }

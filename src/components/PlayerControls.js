@@ -55,10 +55,14 @@ export default function PlayerControls(props) {
             total_duration.current.textContent = durationMinutes + ":" + durationSeconds;
 
         }
+        // if song ends go to next song
+        if (audioEl.current.ended) props.SkipSong()
     }
 
     useEffect(() => {
         let updateTimer = setInterval(seekUpdate, 1000)
+
+
 
         return function () {
             clearInterval(updateTimer)
